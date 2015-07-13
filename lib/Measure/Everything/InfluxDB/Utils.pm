@@ -85,6 +85,7 @@ sub data2line {
 
 sub line2data {
     my $line = shift;
+    chomp($line);
 
     $line=~s/\\ /ESCAPEDSPACE/g;
     $line=~s/\\,/ESCAPEDCOMMA/g;
