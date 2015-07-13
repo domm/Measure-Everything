@@ -9,6 +9,7 @@ use IO::Async::Loop;
 use Hijk ();
 use Carp qw(croak);
 use Measure::Everything::InfluxDB::Utils qw(line2data data2line);
+use Log::Any qw($log);
 
 has 'file'        => ( is => 'ro', isa => 'Str', required => 1 );
 has 'influx_host' => ( is => 'ro', isa => 'Str', required => 1 );
@@ -31,11 +32,13 @@ sub run {
     open( my $fh, "<", $self->file )
         || croak "Cannot open file " . $self->file . ": $!";
 
+    $log->infof( "Starting InfluxD::FileTailer with file %s", $self->file );
+
     my $filestream = IO::Async::FileStream->new(
         read_handle => $fh,
         on_initial  => sub {
             my ($self) = @_;
-            $self->seek_to_last("\n"); # TODO remember last position?
+            $self->seek_to_last("\n");    # TODO remember last position?
         },
 
         on_read => sub {
@@ -63,7 +66,6 @@ sub run {
         interval => $self->flush_interval,
 
         on_tick => sub {
-            say "Send periodic";
             $self->send;
         },
     );
@@ -71,13 +73,14 @@ sub run {
     $loop->add($timer);
 
     $loop->run;
-
 }
 
 sub send {
     my ($self) = @_;
     return unless @buffer;
-    say "Send buffer to influx size = " . scalar @buffer;
+
+    $log->debugf( "Sending %i lines to influx", scalar @buffer );
+
     my $res = Hijk::request(
         {   method       => "POST",
             host         => $self->influx_host,
@@ -87,8 +90,13 @@ sub send {
             body         => join( "\n", @buffer ),
         }
     );
-    say "Sent!";
-    say $res->{status};
+    if ( $res->{status} != 204 ) {
+        $log->errorf(
+            "Could not send %i lines to influx: %s",
+            scalar @buffer,
+            $res->{body}
+        );
+    }
     @buffer = ();
 }
 
