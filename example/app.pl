@@ -12,7 +12,7 @@ die "please provide a name as the first commandline param" unless $name;
 my $app = SomeApp->new({ name=> $name });
 use Time::HiRes qw(usleep);
 
-my $target = 100000;
+my $target = 100_000;
 for my $i (1..$target) {
     $app->do($i);
     usleep(10);
