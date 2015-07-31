@@ -1,5 +1,4 @@
 package Measure::Everything::Adapter::Base;
-use 5.010;
 use strict;
 use warnings;
 
@@ -19,6 +18,6 @@ sub write {
     my $class = ref( $_[0] ) || $_[0];
     die "$class does not implement 'write'";
 }
-1;
 
+1;
 

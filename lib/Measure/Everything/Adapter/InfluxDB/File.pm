@@ -1,12 +1,12 @@
 package Measure::Everything::Adapter::InfluxDB::File;
-use 5.010;
 use strict;
 use warnings;
 
 use Config;
 use Fcntl qw/:flock/;
 
-use base qw(Measure::Everything::Adapter::InfluxDB);
+use base qw(Measure::Everything::Adapter::Base);
+use InfluxDB::LineProtocol qw(data2line);
 
 my $HAS_FLOCK = $Config{d_flock} || $Config{d_fcntl_can_lock} || $Config{d_lockf};
 
@@ -20,7 +20,7 @@ sub init {
 
 sub write {
     my $self = shift;
-    my $line = $self->prepare_line(@_);
+    my $line = data2line(@_);
 
     flock($self->{fh}, LOCK_EX) if $HAS_FLOCK;
     $self->{fh}->print($line."\n");
