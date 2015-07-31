@@ -1,2 +1,4 @@
 local
 Measure-Everything-*
+.build
+cpanfile.snapshot
