@@ -6,7 +6,7 @@ use Carp qw(croak);
 use Time::HiRes qw(gettimeofday);
 
 use base qw(Measure::Everything::Adapter::Base);
-use Measure::Everything::InfluxDB::Utils qw(data2line);
+use InfluxDB::LineProtocol qw(data2line);
 
 sub write {
     croak "Please use a subclass of ".__PACKAGE__;
