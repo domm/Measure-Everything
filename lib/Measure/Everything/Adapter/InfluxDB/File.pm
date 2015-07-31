@@ -30,4 +30,22 @@ sub write {
 }
 
 1;
+__END__
+
+=head1 SYNOPSIS
+
+    Measure::Everything::Adapter->set( 'InfluxDB::File', file => '/path/to/file.stat' );
+
+=head1 DESCRIPTION
+
+Write stats using
+L<InfluxDB::LineProtocol|https://metacpan.org/pod/InfluxDB::LineProtocol>
+into a file.
+
+The file is opened for append with autoflush on. If flock
+is available, the handle will be locked when writing. (Docs and code
+copied as-is from Log::Any::Adapter::File)
+
+It is your job to somehow process the file to get the lines into
+L<InfluxDB|https://influxdb.com/>.
 

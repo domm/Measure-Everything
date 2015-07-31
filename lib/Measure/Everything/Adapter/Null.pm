@@ -9,4 +9,13 @@ use base qw(Measure::Everything::Adapter::Base);
 sub write { }
 
 1;
+__END__
+
+=head1 SYNOPSIS
+
+    Measure::Everything::Adapter->set( 'Null' );
+
+=head1 DESCRIPTION
+
+Ignore all stats. This Adapter is used if you do not specify an Adapter.
 

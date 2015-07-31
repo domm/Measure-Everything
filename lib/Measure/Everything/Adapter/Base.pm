@@ -21,3 +21,9 @@ sub write {
 
 1;
 
+__END__
+
+=head1 DESCRIPTION
+
+Base class for all Adapters. You won't need this unless you want to write an Adapter.
+
