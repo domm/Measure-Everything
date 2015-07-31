@@ -1,8 +1,9 @@
 package Measure::Everything::Adapter;
-use 5.010;
 use strict;
 use warnings;
 use Module::Runtime qw(use_module);
+
+# ABSTRACT: Tell Measure::Everything where to send the stats
 
 sub set {
     my ($self, $adapter, @args) = @_;

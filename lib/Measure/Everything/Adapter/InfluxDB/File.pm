@@ -2,6 +2,8 @@ package Measure::Everything::Adapter::InfluxDB::File;
 use strict;
 use warnings;
 
+# ABSTRACT: Write stats formatted as InfluxDB lines into a file
+
 use Config;
 use Fcntl qw/:flock/;
 

@@ -2,7 +2,7 @@ package Measure::Everything::Adapter::Base;
 use strict;
 use warnings;
 
-use Measure::Everything::Adapter;
+# ABSTRACT: Base class for adapters
 
 sub new {
     my $class = shift;
