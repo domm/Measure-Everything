@@ -47,5 +47,5 @@ is available, the handle will be locked when writing. (Docs and code
 copied as-is from Log::Any::Adapter::File)
 
 It is your job to somehow process the file to get the lines into
-L<InfluxDB|https://influxdb.com/>.
+L<InfluxDB|https://influxdb.com/>. We will release a set of modules that help doing that in the near future.
 
