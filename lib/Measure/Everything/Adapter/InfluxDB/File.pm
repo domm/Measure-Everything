@@ -2,6 +2,8 @@ package Measure::Everything::Adapter::InfluxDB::File;
 use strict;
 use warnings;
 
+our $VERSION = '1.000';
+
 # ABSTRACT: Write stats formatted as InfluxDB lines into a file
 
 use Config;
@@ -47,5 +49,6 @@ is available, the handle will be locked when writing. (Docs and code
 copied as-is from Log::Any::Adapter::File)
 
 It is your job to somehow process the file to get the lines into
-L<InfluxDB|https://influxdb.com/>. We will release a set of modules that help doing that in the near future.
+L<InfluxDB|https://influxdb.com/>. We will release a set of modules
+that help doing that in the near future.
 
