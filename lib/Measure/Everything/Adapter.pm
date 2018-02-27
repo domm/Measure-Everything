@@ -9,7 +9,7 @@ sub set {
     my ($self, $adapter, @args) = @_;
 
     my $module_name;
-    if ( $adapter =~ s/^+// ) {
+    if ( $adapter =~ s/^\+// ) {
         $module_name = $adapter;
     } else {
         $module_name = 'Measure::Everything::Adapter::'.$adapter;
