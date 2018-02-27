@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Module::Runtime qw(use_module);
 
-our $VERSION = '1.001';
+our $VERSION = '1.002';
 
 # ABSTRACT: Log::Any for Stats
 
