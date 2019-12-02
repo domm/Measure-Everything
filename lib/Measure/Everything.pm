@@ -143,9 +143,9 @@ define an adapter, that will handle the data passed via C<write>.
 =head1 SEE ALSO
 
 The basic concept is stolen from
-<Log::Any|https://metacpan.org/pod/Log::Any>. If you have troubles
+L<Log::Any|https://metacpan.org/pod/Log::Any>. If you have troubles
 understanding this set of modules, please read the excellent Log::Any
-docs, and substitue "logging" with "writing stats".
+docs, and substitute "logging" with "writing stats".
 
 For more information on measuring & stats, and the obvious inspiration
 for this module's name, read the interesting article L<Measure
