@@ -1,8 +1,10 @@
 package Measure::Everything::Adapter::Base;
-use strict;
-use warnings;
 
 # ABSTRACT: Base class for adapters
+# VERSION
+
+use strict;
+use warnings;
 
 sub new {
     my $class = shift;

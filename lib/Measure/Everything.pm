@@ -1,12 +1,12 @@
 package Measure::Everything;
+
+# ABSTRACT: Log::Any for Stats
+# VERSION
+
 use 5.010;
 use strict;
 use warnings;
 use Module::Runtime qw(use_module);
-
-our $VERSION = '1.002';
-
-# ABSTRACT: Log::Any for Stats
 
 our $global_stats;
 

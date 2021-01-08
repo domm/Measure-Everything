@@ -1,10 +1,12 @@
 package Measure::Everything::Adapter::Test;
+
+# ABSTRACT: Test Adapter: for testing...
+# VERSION
+
 use strict;
 use warnings;
 
 use base qw(Measure::Everything::Adapter::Base);
-
-# ABSTRACT: Test Adapter: for testing...
 
 sub init {
     my $self = shift;

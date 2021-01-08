@@ -1,10 +1,10 @@
 package Measure::Everything::Adapter::InfluxDB::File;
-use strict;
-use warnings;
-
-our $VERSION = '1.000';
 
 # ABSTRACT: Write stats formatted as InfluxDB lines into a file
+# VERSION
+
+use strict;
+use warnings;
 
 use Config;
 use Fcntl qw/:flock/;

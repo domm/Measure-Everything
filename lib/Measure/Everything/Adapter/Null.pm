@@ -1,10 +1,12 @@
 package Measure::Everything::Adapter::Null;
+
+# ABSTRACT: Null Adapter: ignore all stats
+# VERSION
+
 use strict;
 use warnings;
 
 use base qw(Measure::Everything::Adapter::Base);
-
-# ABSTRACT: Null Adapter: ignore all stats
 
 sub write { }
 
